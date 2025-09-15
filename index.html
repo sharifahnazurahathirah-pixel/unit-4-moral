@@ -1,18 +1,182 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendidikan Moral Tingkatan 1 - Unit 4: Kepelbagaian Agama di Malaysia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .scene-transition { transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-in { animation: fadeIn 1s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+    .progress-bar { transition: width 0.3s ease-in-out; }
+    .info-card { background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-left: 4px solid #0ea5e9; }
+    .highlight-box { background: linear-gradient(135deg, #fef3c7, #fde68a); border: 2px solid #f59e0b; }
+    .moral-value { background: linear-gradient(135deg, #dcfce7, #bbf7d0); border: 2px solid #22c55e; }
+  </style>
+</head>
 <body class="bg-gradient-to-br from-blue-50 via-green-50 to-yellow-50 min-h-screen">
   <div class="container mx-auto sm:px-2 md:px-4 py-6 max-w-6xl">
     <!-- Header -->
     <div class="text-center mb-8 fade-in">
       <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
-        <h1 class="text-2xl md:text-4xl font-bold text-gray-800 mb-2">
-          Pendidikan Moral Tingkatan 1
-        </h1>
-        <h2 class="text-xl md:text-2xl font-semibold text-blue-600 mb-4">
-          Unit 4: Kepelbagaian Agama di Malaysia
-        </h2>
-        <p class="text-base md:text-lg text-gray-600">
-          Memahami dan menghargai kepelbagaian dalam keharmonian
-        </p>
+        <h1 class="text-2xl md:text-4xl font-bold text-gray-800 mb-2">Pendidikan Moral Tingkatan 1</h1>
+        <h2 class="text-xl md:text-2xl font-semibold text-blue-600 mb-4">Unit 4: Kepelbagaian Agama di Malaysia</h2>
+        <p class="text-base md:text-lg text-gray-600">Memahami dan menghargai kepelbagaian dalam keharmonian</p>
+        <div class="flex flex-wrap justify-center gap-2 mt-4 text-sm">
+          <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">📚 Subjek: Pendidikan Moral</span>
+          <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full">🎯 Tingkatan: 1</span>
+          <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">📖 Unit: 4</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Learning Objectives -->
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+      <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-4 flex items-center">🎯 Objektif Pembelajaran</h3>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="info-card p-4 rounded-lg">
+          <h4 class="font-semibold text-blue-800 mb-2">Pengetahuan</h4>
+          <ul class="text-sm md:text-base text-gray-700 space-y-1">
+            <li>• Mengenal pasti agama-agama utama di Malaysia</li>
+            <li>• Memahami konsep kebebasan beragama</li>
+            <li>• Mengetahui peranan Perlembagaan Malaysia</li>
+          </ul>
+        </div>
+        <div class="info-card p-4 rounded-lg">
+          <h4 class="font-semibold text-blue-800 mb-2">Nilai & Sikap</h4>
+          <ul class="text-sm md:text-base text-gray-700 space-y-1">
+            <li>• Menghormati kepelbagaian agama</li>
+            <li>• Memupuk sikap toleransi dan persefahaman</li>
+            <li>• Menghargai keharmonian dalam masyarakat</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="mb-8">
+      <div class="bg-gray-200 rounded-full h-3">
+        <div id="progressBar" class="progress-bar bg-gradient-to-r from-green-500 to-blue-500 h-3 rounded-full" style="width: 12.5%"></div>
+      </div>
+      <div class="flex justify-between mt-2 text-xs md:text-sm text-gray-500">
+        <span>Bahagian <span id="currentScene">1</span> dari 8</span>
+        <span id="progressText">12.5% selesai</span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
+      <div id="sceneContainer" class="scene-transition"></div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="flex flex-wrap justify-between items-center mb-6 gap-2">
+      <button id="prevBtn" class="bg-gray-300 text-gray-500 px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium cursor-not-allowed" disabled>← Sebelumnya</button>
+      <div class="flex space-x-1 md:space-x-2">
+        <button class="scene-dot w-3 h-3 rounded-full bg-blue-500" data-scene="1"></button>
+        <button class="scene-dot w-3 h-3 rounded-full bg-gray-300" data-scene="2"></button>
+        <button class="scene-dot w-3 h-3 rounded-full bg-gray-300" data-scene="3"></button>
+        <button class="scene-dot w-3 h-3 rounded-full bg-gray-300" data-scene="4"></button>
+        <button class="scene-dot w-3 h-3 rounded-full bg-gray-300" data-scene="5"></button>
+        <button class="scene-dot w-3 h-3 rounded-full bg-gray-300" data-scene="6"></button>
+        <button class="scene-dot w-3 h-3 rounded-full bg-gray-300" data-scene="7"></button>
+        <button class="scene-dot w-3 h-3 rounded-full bg-gray-300" data-scene="8"></button>
+      </div>
+      <button id="nextBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium transition-colors">Seterusnya →</button>
+    </div>
+
+    <!-- Auto-play Controls -->
+    <div class="text-center mb-6 space-x-2">
+      <button id="autoPlayBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 md:px-6 py-2 rounded-lg font-medium transition-colors">▶ Main Automatik</button>
+      <button id="resetBtn" class="bg-gray-500 hover:bg-gray-600 text-white px-4 md:px-6 py-2 rounded-lg font-medium transition-colors">🔄 Mula Semula</button>
+    </div>
+
+    <!-- Summary -->
+    <div class="bg-white rounded-xl shadow-lg p-6">
+      <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-4 flex items-center">📝 Ringkasan Pembelajaran</h3>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="moral-value p-4 rounded-lg text-center">
+          <div class="text-2xl mb-2">🤝</div>
+          <h4 class="font-semibold text-green-800">Toleransi</h4>
+          <p class="text-sm text-gray-600">Menghormati perbezaan agama dan kepercayaan</p>
+        </div>
+        <div class="moral-value p-4 rounded-lg text-center">
+          <div class="text-2xl mb-2">☮️</div>
+          <h4 class="font-semibold text-green-800">Keharmonian</h4>
+          <p class="text-sm text-gray-600">Hidup bersama dalam kedamaian</p>
+        </div>
+        <div class="moral-value p-4 rounded-lg text-center">
+          <div class="text-2xl mb-2">🌟</div>
+          <h4 class="font-semibold text-green-800">Persefahaman</h4>
+          <p class="text-sm text-gray-600">Memahami dan menghargai kepelbagaian</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Script -->
+  <script>
+    const storyboard = [
+      { visual: `<div class='p-6 text-center'><h2 class='text-2xl font-bold mb-4'>Bahagian 1: Pengenalan</h2><p class='text-gray-700'>Malaysia ialah negara berbilang kaum dan agama. Kepelbagaian ini merupakan kekuatan yang menyumbang kepada keharmonian dan perpaduan masyarakat.</p></div>` },
+      { visual: `<div class='p-6'><h2 class='text-xl font-bold mb-4'>Bahagian 2: Agama Utama di Malaysia</h2><ul class='list-disc pl-6 text-gray-700'><li>Islam</li><li>Buddha</li><li>Kristian</li><li>Hindu</li><li>Sikh</li></ul></div>` },
+      { visual: `<div class='p-6'><h2 class='text-xl font-bold mb-4'>Bahagian 3: Kebebasan Beragama</h2><p class='text-gray-700'>Perlembagaan Persekutuan menjamin kebebasan beragama kepada semua rakyat Malaysia.</p></div>` },
+      { visual: `<div class='p-6'><h2 class='text-xl font-bold mb-4'>Bahagian 4: Kepentingan Menghormati Kepelbagaian</h2><p class='text-gray-700'>Menghormati kepelbagaian agama dapat mengelakkan konflik, meningkatkan persefahaman, dan memupuk keharmonian.</p></div>` },
+      { visual: `<div class='p-6'><h2 class='text-xl font-bold mb-4'>Bahagian 5: Amalan Seharian</h2><ul class='list-disc pl-6 text-gray-700'><li>Memberi salam dan ucapan semasa perayaan</li><li>Menghormati rumah ibadat</li><li>Tidak menyinggung kepercayaan orang lain</li></ul></div>` },
+      { visual: `<div class='p-6'><h2 class='text-xl font-bold mb-4'>Bahagian 6: Peranan Sekolah</h2><p class='text-gray-700'>Sekolah memainkan peranan penting dalam mendidik pelajar tentang kepelbagaian agama melalui aktiviti kokurikulum, ceramah, dan sambutan perayaan.</p></div>` },
+      { visual: `<div class='p-6'><h2 class='text-xl font-bold mb-4'>Bahagian 7: Nilai Moral</h2><p class='text-gray-700'>Toleransi, hormat-menghormati, persefahaman dan kasih sayang merupakan nilai moral yang dapat dipupuk melalui kepelbagaian agama.</p></div>` },
+      { visual: `<div class='p-6'><h2 class='text-xl font-bold mb-4'>Bahagian 8: Kesimpulan</h2><p class='text-gray-700'>Kepelbagaian agama di Malaysia perlu dihargai dan dihormati agar masyarakat terus hidup dalam keamanan, keharmonian, dan perpaduan.</p></div>` }
+    ];
+
+    let currentScene = 1;
+    let autoPlayInterval = null;
+    let isAutoPlaying = false;
+
+    const sceneContainer = document.getElementById('sceneContainer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const autoPlayBtn = document.getElementById('autoPlayBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const progressBar = document.getElementById('progressBar');
+    const currentSceneSpan = document.getElementById('currentScene');
+    const progressText = document.getElementById('progressText');
+    const sceneDots = document.querySelectorAll('.scene-dot');
+
+    function updateScene(sceneNumber) {
+      currentScene = sceneNumber;
+      sceneContainer.style.opacity = '0';
+      setTimeout(() => {
+        sceneContainer.innerHTML = storyboard[sceneNumber - 1].visual;
+        sceneContainer.style.opacity = '1';
+      }, 300);
+      const progress = (sceneNumber / storyboard.length) * 100;
+      progressBar.style.width = progress + '%';
+      currentSceneSpan.textContent = sceneNumber;
+      progressText.textContent = Math.round(progress) + '% selesai';
+      prevBtn.disabled = sceneNumber === 1;
+      nextBtn.disabled = sceneNumber === storyboard.length;
+      sceneDots.forEach((dot, index) => {
+        dot.className = index + 1 === sceneNumber ? 'scene-dot w-3 h-3 rounded-full bg-blue-500' : 'scene-dot w-3 h-3 rounded-full bg-gray-300';
+      });
+    }
+
+    function nextScene() { if (currentScene < storyboard.length) updateScene(currentScene + 1); else if (isAutoPlaying) updateScene(1); }
+    function prevScene() { if (currentScene > 1) updateScene(currentScene - 1); }
+    function toggleAutoPlay() {
+      if (isAutoPlaying) { clearInterval(autoPlayInterval); autoPlayBtn.innerHTML = '▶ Main Automatik'; autoPlayBtn.className = 'bg-green-500 hover:bg-green-600 text-white px-4 md:px-6 py-2 rounded-lg font-medium transition-colors'; isAutoPlaying = false; }
+      else { autoPlayInterval = setInterval(nextScene, 5000); autoPlayBtn.innerHTML = '⏸ Berhenti'; autoPlayBtn.className = 'bg-red-500 hover:bg-red-600 text-white px-4 md:px-6 py-2 rounded-lg font-medium transition-colors'; isAutoPlaying = true; }
+    }
+    function resetPresentation() { if (isAutoPlaying) toggleAutoPlay(); updateScene(1); }
+
+    nextBtn.addEventListener('click', nextScene);
+    prevBtn.addEventListener('click', prevScene);
+    autoPlayBtn.addEventListener('click', toggleAutoPlay);
+    resetBtn.addEventListener('click', resetPresentation);
+    sceneDots.forEach((dot, index) => { dot.addEventListener('click', () => updateScene(index + 1)); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') nextScene(); else if (e.key === 'ArrowLeft') prevScene(); else if (e.key === ' ') { e.preventDefault(); toggleAutoPlay(); } else if (e.key === 'Home') { e.preventDefault(); resetPresentation(); } });
+    updateScene(1);
+  </script>
 </body>
+</html>
